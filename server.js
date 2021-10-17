@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
 
 app.get("/products/:query", async (req, res) => {
     let result = await requestTo(req.params.query);
-    console.log(result);
     res.render("products", { result });
 });
 

@@ -5,12 +5,14 @@ const cheerio = require("cheerio");
 
 async function requestTo(query) {
     try {
+        
         const flipkartRes = await got(`https://www.flipkart.com/search?q=${query}`);
         let Flipkart = flipkartData(flipkartRes.body);
         const amazonRes = await got(`https://www.amazon.in/s?k=${query}`);
         let Amazon = amazonData(amazonRes.body);
 
         return { Flipkart, Amazon };
+        
 
     } catch (error) {
         console.log(error);
