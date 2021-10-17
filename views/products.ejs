@@ -9,6 +9,7 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/products.css">
     <title>Home</title>
+
 </head>
 
 <body>
@@ -21,8 +22,6 @@
             <div class="navMenu">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Signup</a> </li>
                 </ul>
             </div>
             <div class="hamburger">
@@ -34,26 +33,31 @@
     <div class="hamburger_navMenu">
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">SignUp</a></li>
         </ul>
     </div>
 
 
 
+    <form action="/" method="post" class="inputClass">
+        <input type="text" class="search" placeholder="Search product..." name="userQuery">
+        <button class="searchBtn"><i class="far fa-search"></i></button>
+    </form>
 
     <div class="main">
         <div class="container">
 
+            <% Object.keys(result).forEach((key)=>{
 
-            <% for(let key in result){ if(result[key]!="" ){%>
+                if(Object.keys(result[key]).length)
+                {%>
                 <div class="product_brand">
                     <h1>
-                        Brand
+                        <%=key%>
                     </h1>
                 </div>
                 <div class="products_grid">
                     <%for(let subKey in result[key]){%>
+
                         <a href="<%=result[key][subKey]['productLink']%>" class="product">
 
                             <img src="<%=result[key][subKey]['productImg']%>">
@@ -67,70 +71,7 @@
                         </a>
                         <%}%>
                 </div>
-
-                <%}}%>
-
-                    <!-- <div class="product_brand">
-                        <h1>Brand</h1>
-                    </div>
-                    <div class="products_grid">
-                        <a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-
-                        </a>
-                        <a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-
-                        </a>
-                        <a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a>
-                        <a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a><a href="#" class="product">
-
-                            <img src="../img.jpeg" alt="" srcset="">
-                            <h3>Product Name</h3>
-                            <h4>Price: <span> 555</span> </h4>
-                        </a>
-                    </div> -->
+                <%}})%>
         </div>
 
 
@@ -155,7 +96,7 @@
         </div>
     </footer> -->
 
-    <script src="./js/index.js"></script>
+    <script src="/js/products.js"></script>
 </body>
 
 </html>
